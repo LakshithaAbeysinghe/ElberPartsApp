@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <fragment
+        android:id="@+id/navHost"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/nav_graph" />
+
+    <!-- Bottom bar per Figma: 24dp LR padding, 13/21 paddings for items, 28dp icons -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_bottom_nav"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:elevation="8dp"
+        app:menu="@menu/menu_bottom"
+        app:itemIconTint="@color/selector_nav_item"
+        app:itemTextColor="@color/selector_nav_item"
+        app:itemIconSize="28dp"
+        app:labelVisibilityMode="labeled"
+        app:itemHorizontalTranslationEnabled="false"
+        app:itemActiveIndicatorStyle="@style/BottomNav.ActiveIndicator"
+        app:itemTextAppearanceActive="@style/NavText.Active"
+        app:itemTextAppearanceInactive="@style/NavText.Inactive"
+        app:itemPaddingTop="18dp"
+        app:itemPaddingBottom="22dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCart"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="56dp"
+        android:contentDescription="@string/cart"
+        app:srcCompat="@drawable/ic_shopping_cart_24"
+        app:tint="@color/nav_icon_active"
+        app:backgroundTint="@color/nav_bg"
+        app:borderWidth="0dp"
+        app:useCompatPadding="false"
+        app:ensureMinTouchTargetSize="false"
+        android:clickable="true"
+        android:focusable="true"
+        android:elevation="8dp"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

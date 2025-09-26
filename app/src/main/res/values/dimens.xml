@@ -1,0 +1,13 @@
+<resources>
+    <dimen name="space_8">8dp</dimen>
+    <dimen name="space_16">16dp</dimen>
+    <dimen name="space_24">24dp</dimen>
+
+    <dimen name="onb_margin_top">96dp</dimen>
+    <dimen name="onb_space_title_desc">32dp</dimen>
+    <dimen name="onb_btn_size">48dp</dimen>
+    <dimen name="onb_edge_margin">24dp</dimen>
+
+    <dimen name="nav_item_padding_top">18dp</dimen>
+    <dimen name="nav_item_padding_bottom">22dp</dimen>
+</resources>

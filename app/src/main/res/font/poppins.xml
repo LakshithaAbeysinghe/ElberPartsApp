@@ -1,0 +1,14 @@
+<!-- res/font/poppins.xml -->
+<font-family xmlns:app="http://schemas.android.com/apk/res-auto">
+    <font
+        app:fontProviderAuthority="com.google.android.gms.fonts"
+        app:fontProviderPackage="com.google.android.gms"
+        app:fontProviderQuery="name=Poppins&amp;weight=400"
+        app:fontProviderCerts="@array/com_google_android_gms_fonts_certs" />
+
+    <font
+        app:fontProviderAuthority="com.google.android.gms.fonts"
+        app:fontProviderPackage="com.google.android.gms"
+        app:fontProviderQuery="name=Poppins&amp;weight=700"
+        app:fontProviderCerts="@array/com_google_android_gms_fonts_certs" />
+</font-family>

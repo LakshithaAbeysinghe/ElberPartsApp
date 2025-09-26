@@ -1,0 +1,121 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Onboarding Title: Poppins Bold 36, line height ≈ 43 -->
+    <style name="OnbTitle">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">36sp</item>
+
+        <!-- Pre-28 approximation to 43sp line height: 43 - 36 = 7sp -->
+        <item name="android:lineSpacingExtra">7sp</item>
+
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Onboarding Body: Poppins Regular 15, line height ≈ 18 -->
+    <style name="OnbBody">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">15sp</item>
+
+        <!-- Pre-28 approximation to 18sp line height: 18 - 15 = 3sp -->
+        <item name="android:lineSpacingExtra">3sp</item>
+
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Optional: circular Material button look if you switch from ImageButton -->
+    <style name="OnbCircleButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/brand</item>
+        <item name="android:minWidth">@dimen/onb_btn_size</item>
+        <item name="android:minHeight">@dimen/onb_btn_size</item>
+        <item name="cornerRadius">24dp</item>
+        <item name="iconPadding">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+    </style>
+
+    <!-- Rounded Outlined TextInputLayout (Material3) -->
+    <style name="Widget.Elber.TextInputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/text_secondary</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="hintTextColor">@color/text_secondary</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <!-- 28dp-ish corners to get that pill-like look -->
+        <item name="shapeAppearance">@style/ShapeAppearance.Elber.OutlinedField</item>
+    </style>
+
+    <style name="ShapeAppearance.Elber.OutlinedField" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <!-- Primary pill button -->
+    <style name="Widget.Elber.Button.Primary" parent="Widget.Material3.Button">
+        <item name="backgroundTint">@color/brand</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Elber.Button.Pill</item>
+    </style>
+
+    <style name="ShapeAppearance.Elber.Button.Pill" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">28dp</item>
+    </style>
+
+    <!-- Headline style for "Welcome Back!" -->
+    <style name="LoginTitle">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:lineHeight" tools:targetApi="28">43sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+    </style>
+
+    <style name="LinkText">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/brand</item>
+    </style>
+
+    <style name="CaptionText">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <!-- Active pill behind selected item (Material 3) -->
+    <style name="BottomNav.ActiveIndicator"
+        parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:width">56dp</item>
+        <item name="android:height">56dp</item>
+        <item name="android:color">@color/nav_active_indicator</item>
+        <!-- Use shapeAppearance instead of shapeAppearanceSmall -->
+        <item name="shapeAppearance">@style/ShapeAppearance.Elber.ActiveIndicator</item>
+    </style>
+
+    <style name="ShapeAppearance.Elber.ActiveIndicator"
+        parent="ShapeAppearance.Material3.Corner.Full">
+        <!-- rounds into a pill -->
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="NavText.Active" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="NavText.Inactive" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+</resources>

@@ -1,0 +1,12 @@
+<resources>
+    <color name="brand">#DD1F27</color>
+    <color name="text_primary">#111111</color>
+    <color name="text_secondary">#6B6B6B</color>
+    <color name="gray_100">#F5F5F5</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="nav_bg">#FFFFFFFF</color>
+    <color name="nav_icon_active">#000000</color>
+    <color name="nav_icon_inactive">#66000000</color> <!-- 40% black -->
+    <color name="nav_active_indicator">#1A000000</color> <!-- 10% black -->
+</resources>

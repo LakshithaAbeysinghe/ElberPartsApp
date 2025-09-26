@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Elber Parts</string>
+
+    <string name="onb1_title">Discover \nIndustrial Parts \nEasily</string>
+    <string name="onb1_desc">Find 3D-printing materials, aluminum\nprofiles and fasteners in one reliable\nstore.</string>
+    <string name="cd_next">Next</string>
+
+    <string name="onb2_title">Fast and Simple\nOrders</string>
+    <string name="onb2_desc">Add items to your cart and \nplace orders in just a few taps with a demo \ncheckout flow.</string>
+
+    <string name="onb3_title">Track Your\nOrders</string>
+    <string name="onb3_desc">Manage your profile, addresses, and check your \norder history anytime.</string>
+
+    <string name="next">Next</string>
+    <string name="get_started">Get Started</string>
+    <string name="login">Login</string>
+
+    <string name="welcome_back">Welcome\nBack!</string>
+    <string name="email_hint">Username or Email</string>
+    <string name="password_hint">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login_cta">Login</string>
+    <string name="create_account_prefix">Create An Account</string>
+    <string name="sign_up">Sign Up</string>
+
+    <string name="signup_title">Create an\nAccount</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    <string name="create_account_cta">Create Account</string>
+    <string name="tos_prefix">By clicking the <b>create account</b> button, you agree\nto the create elber profile</string>
+    <string name="already_have_account">I Already Have an Account</string>
+    <string name="login_link">Login</string>
+
+    <string name="forgot_title">Forgot\nPassword?</string>
+    <string name="fp_email_hint">Enter your email address</string>
+    <string name="fp_note">* We will send you a message to set or reset your new password</string>
+    <string name="submit">Submit</string>
+    <string name="reset_link_sent">Reset link sent to %1$s</string>
+
+    <string name="create_password_title">Create\nPassword</string>
+    <string name="new_password">New password</string>
+    <string name="confirm_new_password">Confirm new password</string>
+    <string name="reset">Reset</string>
+    <string name="password_reset_success">Password reset successful!</string>
+
+    <string name="cart">Cart</string>
+</resources>

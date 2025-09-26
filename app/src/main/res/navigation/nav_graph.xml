@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/splashFragment">
+
+    <!-- Splash -->
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.elber.parts.ui.onboarding.SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splash_to_onb1"
+            app:destination="@id/onb1Fragment" />
+    </fragment>
+
+    <!-- Onboarding 1 -->
+    <fragment
+        android:id="@+id/onb1Fragment"
+        android:name="com.elber.parts.ui.onboarding.Onb1Fragment"
+        tools:layout="@layout/fragment_onb1">
+        <action
+            android:id="@+id/action_onb1_to_onb2"
+            app:destination="@id/onb2Fragment" />
+    </fragment>
+
+    <!-- Onboarding 2 -->
+    <fragment
+        android:id="@+id/onb2Fragment"
+        android:name="com.elber.parts.ui.onboarding.Onb2Fragment"
+        tools:layout="@layout/fragment_onb2">
+        <action
+            android:id="@+id/action_onb2_to_onb3"
+            app:destination="@id/onb3Fragment" />
+    </fragment>
+
+    <!-- Onboarding 3 -->
+    <fragment
+        android:id="@+id/onb3Fragment"
+        android:name="com.elber.parts.ui.onboarding.Onb3Fragment"
+        tools:layout="@layout/fragment_onb3">
+        <action
+            android:id="@+id/action_onb3_to_login"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <!-- Login -->
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.elber.parts.ui.auth.LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_login_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_login_to_signupFragment"
+            app:destination="@id/signupFragment" />
+        <action
+            android:id="@+id/action_login_to_forgotPassword"
+            app:destination="@id/forgotPasswordFragment" />
+    </fragment>
+
+    <!-- Forgot Password -->
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.elber.parts.ui.auth.ForgotPasswordFragment"
+        tools:layout="@layout/fragment_forgot_password">
+        <!-- go to Create Password after submitting email -->
+        <action
+            android:id="@+id/action_forgotPassword_to_createPassword"
+            app:destination="@id/createPasswordFragment" />
+    </fragment>
+
+    <!-- Create Password -->
+    <fragment
+        android:id="@+id/createPasswordFragment"
+        android:name="com.elber.parts.ui.auth.CreatePasswordFragment"
+        tools:layout="@layout/fragment_create_password">
+
+        <!-- carry the email we’re resetting for (optional but useful) -->
+        <argument
+            android:name="email"
+            app:argType="string"
+            app:nullable="true" />
+
+        <!-- ✅ new action: go to login and clear backstack -->
+        <action
+            android:id="@+id/action_createPassword_to_login"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/createPasswordFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+
+    <!-- Sign Up -->
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.elber.parts.ui.auth.SignupFragment"
+        tools:layout="@layout/fragment_signup">
+        <action
+            android:id="@+id/action_signup_to_login"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/signupFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- Bottom-nav destinations -->
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.elber.parts.ui.home.HomeFragment"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.elber.parts.ui.home.CategoryFragment"
+        tools:layout="@layout/fragment_dummy" />
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.elber.parts.ui.home.SearchFragment"
+        tools:layout="@layout/fragment_dummy" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.elber.parts.ui.home.ProfileFragment"
+        tools:layout="@layout/fragment_dummy" />
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.elber.parts.ui.home.CartFragment"
+        tools:layout="@layout/fragment_cart" />
+</navigation>

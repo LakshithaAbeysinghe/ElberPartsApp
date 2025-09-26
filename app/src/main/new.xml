@@ -1,0 +1,3 @@
+<fragment android:id="@+id/onb1Fragment" android:name="com.elber.parts.ui.YourOnb1Fragment" <!-- Make sure this is the correct path to your fragment class -->
+    android:label="fragment_onb1"tools:layout="@layout/fragment_onb1" />
+          
