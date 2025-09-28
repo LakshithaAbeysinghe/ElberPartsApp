@@ -11,4 +11,6 @@
     <color name="nav_active_indicator">#1A000000</color> <!-- 10% black -->
 
     <color name="divider">#E0E0E0</color>
+
+    <color name="bg_chip">#F4F5F7</color>
 </resources>
