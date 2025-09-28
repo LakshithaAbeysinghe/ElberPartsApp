@@ -4,10 +4,21 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
-@Database(entities = [User::class], version = 1, exportSchema = false)
+@Database(
+    entities = [
+        User::class,
+        Product::class
+    ],
+    version = 2,
+    exportSchema = false
+)
+@TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
+
     abstract fun userDao(): UserDao
+    abstract fun productDao(): ProductDao
 
     companion object {
         @Volatile private var INSTANCE: AppDatabase? = null
@@ -19,7 +30,7 @@ abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::class.java,
                     "elber.db"
                 )
-                    .fallbackToDestructiveMigration() // fine for dev/assignment
+                    .fallbackToDestructiveMigration() // OK for dev
                     .build()
                     .also { INSTANCE = it }
             }

@@ -43,4 +43,7 @@
     <string name="password_reset_success">Password reset successful!</string>
 
     <string name="cart">Cart</string>
+
+    <string name="product_details">Product Details</string>
+    <string name="add_to_cart">Add to cart</string>
 </resources>

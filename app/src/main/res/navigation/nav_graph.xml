@@ -68,7 +68,6 @@
         android:id="@+id/forgotPasswordFragment"
         android:name="com.elber.parts.ui.auth.ForgotPasswordFragment"
         tools:layout="@layout/fragment_forgot_password">
-        <!-- go to Create Password after submitting email -->
         <action
             android:id="@+id/action_forgotPassword_to_createPassword"
             app:destination="@id/createPasswordFragment" />
@@ -79,21 +78,16 @@
         android:id="@+id/createPasswordFragment"
         android:name="com.elber.parts.ui.auth.CreatePasswordFragment"
         tools:layout="@layout/fragment_create_password">
-
-        <!-- carry the email we’re resetting for (optional but useful) -->
         <argument
             android:name="email"
             app:argType="string"
             app:nullable="true" />
-
-        <!-- ✅ new action: go to login and clear backstack -->
         <action
             android:id="@+id/action_createPassword_to_login"
             app:destination="@id/loginFragment"
             app:popUpTo="@id/createPasswordFragment"
             app:popUpToInclusive="true" />
     </fragment>
-
 
     <!-- Sign Up -->
     <fragment
@@ -107,7 +101,7 @@
             app:popUpToInclusive="true" />
     </fragment>
 
-    <!-- Bottom-nav destinations -->
+    <!-- Bottom-nav destinations (top-level siblings) -->
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.elber.parts.ui.home.HomeFragment"
@@ -116,20 +110,51 @@
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.elber.parts.ui.home.CategoryFragment"
-        tools:layout="@layout/fragment_dummy" />
+        tools:layout="@layout/fragment_category">
+        <argument
+            android:name="category"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.elber.parts.ui.home.SearchFragment"
-        tools:layout="@layout/fragment_dummy" />
+        tools:layout="@layout/fragment_category" />
 
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.elber.parts.ui.home.ProfileFragment"
-        tools:layout="@layout/fragment_dummy" />
+        tools:layout="@layout/fragment_category" />
 
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.elber.parts.ui.home.CartFragment"
         tools:layout="@layout/fragment_cart" />
+
+    <!-- Product Detail -->
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.elber.parts.ui.home.ProductDetailFragment"
+        tools:layout="@layout/fragment_product_detail">
+
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="desc"
+            app:argType="string" />
+        <argument
+            android:name="price"
+            app:argType="string" />
+        <argument
+            android:name="imageName"
+            app:argType="string"
+            app:nullable="true" />
+        <!-- optional, shown if present -->
+        <argument
+            android:name="size"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 </navigation>

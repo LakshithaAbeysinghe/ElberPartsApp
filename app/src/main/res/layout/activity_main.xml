@@ -33,14 +33,14 @@
         app:itemTextAppearanceActive="@style/NavText.Active"
         app:itemTextAppearanceInactive="@style/NavText.Inactive"
         app:itemPaddingTop="18dp"
-        app:itemPaddingBottom="22dp" />
+        app:itemPaddingBottom="22dp"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabCart"
         android:layout_width="56dp"
         android:layout_height="56dp"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="52dp"
         android:contentDescription="@string/cart"
         app:srcCompat="@drawable/ic_shopping_cart_24"
         app:tint="@color/nav_icon_active"
