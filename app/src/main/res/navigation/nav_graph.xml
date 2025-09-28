@@ -50,14 +50,18 @@
         android:id="@+id/loginFragment"
         android:name="com.elber.parts.ui.auth.LoginFragment"
         tools:layout="@layout/fragment_login">
+
+        <!-- ✅ On successful login, drop Splash/Onboarding from the back stack -->
         <action
             android:id="@+id/action_login_to_homeFragment"
             app:destination="@id/homeFragment"
-            app:popUpTo="@id/loginFragment"
+            app:popUpTo="@id/splashFragment"
             app:popUpToInclusive="true" />
+
         <action
             android:id="@+id/action_login_to_signupFragment"
             app:destination="@id/signupFragment" />
+
         <action
             android:id="@+id/action_login_to_forgotPassword"
             app:destination="@id/forgotPasswordFragment" />
@@ -127,11 +131,6 @@
         android:name="com.elber.parts.ui.home.ProfileFragment"
         tools:layout="@layout/fragment_category" />
 
-    <fragment
-        android:id="@+id/cartFragment"
-        android:name="com.elber.parts.ui.home.CartFragment"
-        tools:layout="@layout/fragment_cart" />
-
     <!-- Product Detail -->
     <fragment
         android:id="@+id/productDetailFragment"
@@ -157,4 +156,22 @@
             app:argType="string"
             app:nullable="true" />
     </fragment>
+
+    <!-- Cart -->
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.elber.parts.ui.home.CartFragment"
+        tools:layout="@layout/fragment_cart">
+        <!-- add this action -->
+        <action
+            android:id="@+id/action_cart_to_checkout"
+            app:destination="@id/checkoutFragment" />
+    </fragment>
+
+    <!-- NEW: Checkout -->
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.elber.parts.ui.home.CheckoutFragment"
+        tools:layout="@layout/fragment_checkout"
+        android:label="Checkout" />
 </navigation>
