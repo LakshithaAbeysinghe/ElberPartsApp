@@ -118,4 +118,9 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="SuccessDialogTheme" parent="Theme.Material3.DayNight.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
+    </style>
+
 </resources>
