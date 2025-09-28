@@ -20,6 +20,7 @@ import com.elber.parts.R
 import com.elber.parts.data.cart.CartLine
 import com.elber.parts.data.cart.CartRepository
 import com.elber.parts.util.formatLkr
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -30,24 +31,22 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
     private lateinit var tvEmpty: TextView
     private lateinit var tvOrderTotal: TextView
     private lateinit var btnContinue: View
-
     private lateinit var adapter: CartAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Back arrow
-        view.findViewById<com.google.android.material.appbar.MaterialToolbar>(R.id.topBar)
-            .setNavigationOnClickListener { findNavController().navigateUp() }
+        // Back arrow -> last screen on the back stack (never to Splash)
+        view.findViewById<MaterialToolbar>(R.id.topBar)
+            .setNavigationOnClickListener { findNavController().popBackStack() }
 
         rv = view.findViewById(R.id.rvCart)
         tvEmpty = view.findViewById(R.id.tvEmpty)
         tvOrderTotal = view.findViewById(R.id.tvOrderTotal)
         btnContinue = view.findViewById(R.id.btnContinue)
 
-        // ✅ THIS was missing — without a LayoutManager nothing is drawn
+        // RecyclerView
         rv.layoutManager = LinearLayoutManager(requireContext())
-
         adapter = CartAdapter(
             onInc = { index -> CartRepository.incAt(index) },
             onDec = { index -> CartRepository.decAt(index) },
@@ -55,7 +54,7 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
         )
         rv.adapter = adapter
 
-        // Observe cart
+        // Observe cart & total
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 CartRepository.items.collectLatest { list ->
@@ -66,18 +65,18 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
             }
         }
 
+        // Continue -> Checkout (use graph action id)
         btnContinue.setOnClickListener {
             if (CartRepository.items.value.isEmpty()) {
                 Snackbar.make(view, "Cart is Empty", Snackbar.LENGTH_SHORT).show()
             } else {
-                // TODO: navigate to checkout screen
-                Snackbar.make(view, "Proceeding to checkout…", Snackbar.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_cart_to_checkout)
             }
         }
     }
 }
 
-/* ---------------- Adapter ---------------- */
+/* --------------- Adapter ---------------- */
 
 private class CartAdapter(
     private val onInc: (Int) -> Unit,
@@ -88,9 +87,7 @@ private class CartAdapter(
     object Diff : DiffUtil.ItemCallback<CartLine>() {
         override fun areItemsTheSame(oldItem: CartLine, newItem: CartLine) =
             oldItem.title == newItem.title && oldItem.unitPriceText == newItem.unitPriceText
-
-        override fun areContentsTheSame(oldItem: CartLine, newItem: CartLine) =
-            oldItem == newItem
+        override fun areContentsTheSame(oldItem: CartLine, newItem: CartLine) = oldItem == newItem
     }
 
     inner class VH(v: View) : RecyclerView.ViewHolder(v) {
@@ -111,7 +108,6 @@ private class CartAdapter(
 
     override fun onBindViewHolder(h: VH, position: Int) {
         val item = getItem(position)
-
         h.title.text = item.title
         h.unitPrice.text = item.unitPriceText
         h.tvQty.text = item.qty.toString()
@@ -122,16 +118,13 @@ private class CartAdapter(
         h.img.setImageResource(if (resId != 0) resId else R.drawable.aluminum)
 
         h.btnInc.setOnClickListener {
-            val idx = h.bindingAdapterPosition
-            if (idx != RecyclerView.NO_POSITION) onInc(idx)
+            h.bindingAdapterPosition.takeIf { it != RecyclerView.NO_POSITION }?.let(onInc)
         }
         h.btnDec.setOnClickListener {
-            val idx = h.bindingAdapterPosition
-            if (idx != RecyclerView.NO_POSITION) onDec(idx)
+            h.bindingAdapterPosition.takeIf { it != RecyclerView.NO_POSITION }?.let(onDec)
         }
         h.btnDelete.setOnClickListener {
-            val idx = h.bindingAdapterPosition
-            if (idx != RecyclerView.NO_POSITION) onDelete(idx)
+            h.bindingAdapterPosition.takeIf { it != RecyclerView.NO_POSITION }?.let(onDelete)
         }
     }
 }
