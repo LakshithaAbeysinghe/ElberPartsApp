@@ -47,9 +47,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
         android:text="Shopping List"
         android:textColor="@color/text_primary"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
     <!-- Empty state -->
@@ -57,8 +58,9 @@
         android:id="@+id/tvEmpty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="260dp"
         android:gravity="center"
+        android:textSize="24sp"
         android:text="Cart is Empty"
         android:textColor="@color/text_secondary"
         android:visibility="gone" />
@@ -67,6 +69,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCart"
         android:layout_width="match_parent"
+        android:layout_marginBottom="2dp"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:clipToPadding="false"
